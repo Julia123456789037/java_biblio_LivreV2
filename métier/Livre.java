@@ -6,10 +6,11 @@ import java.util.GregorianCalendar;
 public class Livre
 {
 	private String  titre;
-	private String  ecrivain1;
-	private String  ecrivain2;
-	private String  editeur;
-	private String	statut;
+    private TypeLivre type;
+	private Auteur  ecrivain1;
+	private Auteur  ecrivain2;
+	private Editeur  editeur;
+	private Statut	statut;
 	private int		note;
 	private String	detailNote;
 
