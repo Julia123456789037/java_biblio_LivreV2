@@ -73,7 +73,6 @@ public class Livre
 		return false;
 	}
 	
-
 	public String  toString   ()
 	{
 		String s;
