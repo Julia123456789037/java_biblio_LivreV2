@@ -1,4 +1,4 @@
-package projet_java.Bibli.java_biblio_LivreV2.métier;
+package Bibli.java_biblio_LivreV2.métier;
 
 public class Statut 
 {
