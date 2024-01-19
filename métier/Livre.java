@@ -14,7 +14,7 @@ public class Livre
 	private int		note;
 	private String	detailNote;
 
-	public Livre (String tit, String ecri1, String ecri2, String edit, String stat, int not, String detNote )
+	public Livre (String tit, TypeLivre type, Auteur ecri1, Auteur ecri2, Editeur edit, Statut stat, int not, String detNote )
 	{
 		this.titre		= tit;
 		this.ecrivain1	= ecri1;
@@ -41,24 +41,24 @@ public class Livre
 	}
 
 	public String  getTitre			() { return this.titre;		}
-	public String  getEcrivain1		() { return this.ecrivain1;	}
-	public String  getEcrivain2		() { return this.ecrivain2;	}
-	public String  getEditeur		() { return this.editeur;		}
-	public String  getStatut		() { return this.statut;		}
+	public Auteur  getEcrivain1		() { return this.ecrivain1;	}
+	public Auteur  getEcrivain2		() { return this.ecrivain2;	}
+	public Editeur  getEditeur		() { return this.editeur;		}
+	public Statut  getStatut		() { return this.statut;		}
 	public int     getNote			() { return this.note;		}
 	public String  getDetailNote	() { return this.detailNote;	}
 
 
-	public boolean setStatut(String s)
+	public boolean setStatut(Statut s)
 	{
-		this.statut		= s;
+		this.statut = s;
 		return true;
 	}
 	public boolean setNote(int num)			
 	{
 		if ( !this.statut.equals("non lu"))
 		{
-			this.note			= num;
+			this.note = num;
 			return true;
 		}
 		return false;
