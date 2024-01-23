@@ -24,11 +24,11 @@ public class Controleur
 
 
 	// Modificateurs
-	public boolean majStatut ( int ligne, Statut val ) { return this.metier.majStatut ( ligne, val ); }
+	public void majStatut ( int ligne, Statut val ) { this.metier.majStatut ( ligne, val ); }
 
 	public boolean majNote ( int ligne, int val ) { return this.metier.majNote ( ligne, val ); }
 
-	public boolean majDetNot ( int ligne, String val ) { return this.metier.majDetNot ( ligne, val ); }
+	public void majDetNot ( int ligne, String val ) { this.metier.majDetNot ( ligne, val ); }
 
 	public void ajouterLivre(String tit, String ecri1, String ecri2, String edit, String stat, int not, String detNote )
 	{
