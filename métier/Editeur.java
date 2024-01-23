@@ -37,7 +37,7 @@ public class Editeur
 	}
 
 	
-	public boolean equals(Editeur edt) { return this.equals(edt); }
+	public boolean equals(Editeur edt) { return this.nom.equalsIgnoreCase(edt.nom); }
 
 	@Override
 	public String toString() {

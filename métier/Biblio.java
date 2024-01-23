@@ -32,11 +32,14 @@ public class Biblio
 		String[]	s;
 		int			cpt;
 		cpt = 0;
+		boolean bOK;
 
 		Ouvrage ouv;
 		Editeur edit;
 		Auteur aut1, aut2;
 		Statut stat;
+
+		bOK = true;
 
 
 		try
@@ -48,12 +51,48 @@ public class Biblio
 				System.out.println(cpt);
 				s = scFic.nextLine().split("\t");
 				edit = new Editeur( s[5]);
+				
 				if( ! s[3].equals("") )
 				{
-					aut1 = new Auteur(null, null);
+					aut1 = new Auteur(s[3], s[4]);
 				}
-				//this.lstOuvrage.add ( new Livre ( s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
+				bOK = true;
+
+				if( ! s[5].equals("") )
+				{
+					aut1 = new Auteur(s[5], s[6]);
+					for (Auteur aut : this.lstAuteur) { if ( aut.equals(aut1) ) {bOK = false;} }
+					if (bOK) { this.lstAuteur.add(aut1); }
+				}
+				bOK = true;
+
+				if( ! s[7].equals("") )
+				{
+					edit = new Editeur(s[7]);
+					for (Editeur edit1 : this.lstEditeur) { if ( edit.equals(edit1) ) {bOK = false;} }
+					if (bOK) { this.lstEditeur.add(edit); }
+				}
+
+				if ( s[1].equalsIgnoreCase("roman") )
+				{
+					//this.lstOuvrage.add ( new Livre ( s[0], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
+				}
+				if ( s[1].equalsIgnoreCase("manga") )
+				{
+					//this.lstOuvrage.add ( new manga ( s[0], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
+				}
+				if ( s[1].equalsIgnoreCase("série") )
+				{
+					//this.lstOuvrage.add ( new Serie ( s[0], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
+				}
+				if ( s[1].equalsIgnoreCase("anime") )
+				{
+					//this.lstOuvrage.add ( new Anime ( s[0], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
+				}
+				
 				//System.out.println( s[0] + " " +  s[1] + " " +  s[2] + " " +  s[3] + " " +  s[4] + " " +  Integer.parseInt(s[5]) + " " +  s[6] );
+
+				//titre	roman	auteurN	auteurP	autur22N	autur22P	POCKET	non lu, en cours, terminer	29	ceci est une note perso
 				cpt++;
 			}
 			System.out.println(scFic.hasNextLine());
