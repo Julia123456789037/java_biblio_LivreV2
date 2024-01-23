@@ -10,8 +10,6 @@ import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
 
 
-
-
 public class Biblio
 {
 
@@ -25,7 +23,6 @@ public class Biblio
 		this.lstOuvrage = new ArrayList<Ouvrage>();
 		this.initStat();
 		this.initTabLivres();
-
 	}
 
 	public void initTabLivres()
@@ -109,30 +106,15 @@ public class Biblio
 		this.lstStatut.add(new Statut("fini"));
 	}
 
-
-	public void majStatut ( int ligne, Statut stat )
-	{
-		this.lstOuvrage.get(ligne).setStatut ( stat );
-	}
-
-	public boolean majNote ( int ligne, int val )
-	{
-		return this.lstOuvrage.get(ligne).setNote ( val );
-	}
-
-	public void majDetNot ( int ligne, String val )
-	{
-		this.lstOuvrage.get(ligne).setDetailNote ( val );
-	}
+	public void majStatut ( int ligne, Statut stat ) { this.lstOuvrage.get(ligne).setStatut ( stat ); }
+	public boolean majNote ( int ligne, int val ) { return this.lstOuvrage.get(ligne).setNote ( val ); }
+	public void majDetNot ( int ligne, String val ) { this.lstOuvrage.get(ligne).setDetailNote ( val ); }
 
 	public void ajouterLivre (String tit, String ecri1, String ecri2, String edit, String stat, int not, String detNote )
 	{
 		this.sauvegarder();
-
 		System.out.println("Livre : OK");
-
 	}
-
 
 	public void sauvegarder()
 	{
@@ -144,7 +126,7 @@ public class Biblio
 			for (Ouvrage liv:this.lstOuvrage )
 			{
 				pw.println ( liv.getTitre ()		+ "\t" +
-							 liv.getType ()		+ "\t" +
+							 liv.getType ()			+ "\t" +
 				             liv.getEcrivain1 ()	+ "\t" +
 				             liv.getEcrivain2 ()	+ "\t" +
 							 liv.getEditeur ()		+ "\t" +
@@ -157,12 +139,7 @@ public class Biblio
 		catch (Exception e){ e.printStackTrace(); }
 	}
 
-
-	public ArrayList<Ouvrage> getOuvrage()
-	{
-		return new ArrayList<Ouvrage>( this.lstOuvrage );
-	}
-
+	public ArrayList<Ouvrage> getOuvrage(){return new ArrayList<Ouvrage>( this.lstOuvrage );}
 
 	public String toString()
 	{

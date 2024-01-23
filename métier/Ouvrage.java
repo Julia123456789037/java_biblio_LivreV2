@@ -1,7 +1,6 @@
 package Bibli.java_biblio_LivreV2.métier;
 
 
-import java.util.GregorianCalendar;
 
 public class Ouvrage
 {
