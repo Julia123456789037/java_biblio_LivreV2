@@ -1,5 +1,6 @@
 package Bibli.java_biblio_LivreV2.métier;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Bibli.java_biblio_LivreV1.FrameCreer;
@@ -19,11 +20,11 @@ public class Controleur
 
 
 	// Accesseurs
-	public List<Livre> getLivres() { return this.metier.getLivres(); }
+	public ArrayList<Ouvrage> getOuvrage() { return this.metier.getOuvrage(); }
 
 
 	// Modificateurs
-	public boolean majSatut ( int ligne, String val ) { return this.metier.majSatut ( ligne, val ); }
+	public boolean majStatut ( int ligne, Statut val ) { return this.metier.majStatut ( ligne, val ); }
 
 	public boolean majNote ( int ligne, int val ) { return this.metier.majNote ( ligne, val ); }
 

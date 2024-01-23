@@ -1,4 +1,4 @@
-package projet_java.Bibli.java_biblio_LivreV1;
+package Bibli.java_biblio_LivreV2.métier;
 
 
 import java.util.ArrayList;
@@ -18,11 +18,11 @@ public class Biblio
 	private ArrayList<Editeur>lstEditeur;
 	private ArrayList<Auteur> lstAuteur;
 	private ArrayList<Statut> lstStatut;
-	private ArrayList<Livre> lstLivre;
+	private ArrayList<Ouvrage> lstOuvrage;
 
 	public Biblio()
 	{
-		this.lstLivre = new ArrayList<Livre>();
+		this.lstOuvrage = new ArrayList<Ouvrage>();
 		this.initTabLivres();
 	}
 
@@ -33,7 +33,7 @@ public class Biblio
 		int			cpt;
 		cpt = 0;
 
-		Livre liv;
+		Ouvrage ouv;
 		Editeur edit;
 		Auteur aut1, aut2;
 		Statut stat;
@@ -50,10 +50,10 @@ public class Biblio
 				edit = new Editeur( s[5]);
 				if( ! s[3].equals("") )
 				{
-					aut1 = new Auteur(null, null)
+					aut1 = new Auteur(null, null);
 				}
-				this.lstLivre.add ( new Livre ( s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
-				System.out.println( s[0] + " " +  s[1] + " " +  s[2] + " " +  s[3] + " " +  s[4] + " " +  Integer.parseInt(s[5]) + " " +  s[6] );
+				//this.lstOuvrage.add ( new Livre ( s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
+				//System.out.println( s[0] + " " +  s[1] + " " +  s[2] + " " +  s[3] + " " +  s[4] + " " +  Integer.parseInt(s[5]) + " " +  s[6] );
 				cpt++;
 			}
 			System.out.println(scFic.hasNextLine());
@@ -65,24 +65,24 @@ public class Biblio
 	}
 
 
-	public boolean majSatut ( int ligne, String val )
+	public boolean majStatut ( int ligne, Statut stat )
 	{
-		return this.lstLivre.get(ligne).setStatut ( val );
+		return this.lstOuvrage.get(ligne).setStatut ( stat );
 	}
 
 	public boolean majNote ( int ligne, int val )
 	{
-		return this.lstLivre.get(ligne).setNote ( val );
+		return this.lstOuvrage.get(ligne).setNote ( val );
 	}
 
 	public boolean majDetNot ( int ligne, String val )
 	{
-		return this.lstLivre.get(ligne).setDetailNote ( val );
+		return this.lstOuvrage.get(ligne).setDetailNote ( val );
 	}
 
 	public void ajouterLivre (String tit, String ecri1, String ecri2, String edit, String stat, int not, String detNote )
 	{
-		this.lstLivre.add(new Livre (tit, ecri1, ecri2, edit, stat, not, detNote ));
+		//this.lstOuvrage.add(new Livre (tit, ecri1, ecri2, edit, stat, not, detNote ));
 
 		this.sauvegarder();
 
@@ -91,6 +91,7 @@ public class Biblio
 
 	}
 
+
 	public void sauvegarder()
 	{
 
@@ -98,7 +99,7 @@ public class Biblio
 		{
 			PrintWriter pw = new PrintWriter(new OutputStreamWriter(new FileOutputStream("Livres.data"), "UTF8" ));
 
-			for (Livre liv:this.lstLivre )
+			for (Ouvrage liv:this.lstOuvrage )
 			{
 				pw.println ( liv.getTitre ()		+ "\t" +
 				             liv.getEcrivain1 ()	+ "\t" +
@@ -114,9 +115,9 @@ public class Biblio
 	}
 
 
-	public List<Livre> getLivres()
+	public ArrayList<Ouvrage> getOuvrage()
 	{
-		return new ArrayList<Livre>( this.lstLivre );
+		return new ArrayList<Ouvrage>( this.lstOuvrage );
 	}
 
 
@@ -124,7 +125,7 @@ public class Biblio
 	{
 		String sRet = "";
 
-		for ( Livre clt: this.lstLivre )
+		for ( Ouvrage clt: this.lstOuvrage )
 			sRet += clt.toString() + "\n";
 
 		return sRet;
