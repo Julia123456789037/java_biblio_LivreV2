@@ -3,14 +3,14 @@ package Bibli.java_biblio_LivreV2.métier;
 import java.util.ArrayList;
 import java.util.List;
 
-import Bibli.java_biblio_LivreV1.FrameCreer;
-import Bibli.java_biblio_LivreV1.FrameTable;
+//import Bibli.java_biblio_LivreV1.FrameCreer;
+//import Bibli.java_biblio_LivreV1.FrameTable;
 
 public class Controleur 
 {
-    private FrameTable ihm;
+    //private FrameTable ihm;
 	private Biblio  metier;
-	private FrameCreer creer;
+	//private FrameCreer creer;
 
 	public Controleur ()
 	{
@@ -30,13 +30,12 @@ public class Controleur
 
 	public void majDetNot ( int ligne, String val ) { this.metier.majDetNot ( ligne, val ); }
 
-	public void ajouterLivre(String tit, String ecri1, String ecri2, String edit, String stat, int not, String detNote )
+	public void ajouterOuvrage(String tit, String type, Auteur ecri1, Auteur ecri2, Editeur edit, Statut stat, int not, String detNote )
 	{
-		metier.ajouterLivre(tit, ecri1, ecri2, edit, stat, not, detNote );
+		metier.ajouterOuvrage(tit, type, ecri1, ecri2, edit, stat, not, detNote );
 
 		//System.out.println("Controleur : OK");
-
-		this.ihm.majModele();
+		//this.ihm.majModele();
 
 	}
 

@@ -21,6 +21,10 @@ public class Biblio
 	public Biblio()
 	{
 		this.lstOuvrage = new ArrayList<Ouvrage>();
+		this.lstEditeur = new ArrayList<Editeur>();
+		this.lstAuteur = new ArrayList<Auteur>();
+		this.lstStatut = new ArrayList<Statut>();
+
 		this.initStat();
 		this.initTabLivres();
 	}
@@ -55,7 +59,7 @@ public class Biblio
 				if( ! s[2].equals("") )
 				{
 					aut1 = new Auteur(s[2], s[3]);
-					for (Auteur aut : this.lstAuteur) { if ( aut.equals(aut1) ) {bOK = false;} }
+					for (Auteur aut : this.lstAuteur) { if ( (aut.getNom() + aut.getPrenom()).equals(aut1.getNom() + aut1.getPrenom()) ) {bOK = false;} }
 					if (bOK) { this.lstAuteur.add(aut1); }
 				}
 				bOK = true;
@@ -63,7 +67,7 @@ public class Biblio
 				if( ! s[4].equals("") )
 				{
 					aut2 = new Auteur(s[4], s[5]);
-					for (Auteur aut : this.lstAuteur) { if ( aut.equals(aut2) ) {bOK = false;} }
+					for (Auteur aut : this.lstAuteur) { if ( (aut.getNom() + aut.getPrenom()).equals(aut2.getNom() + aut2.getPrenom()) ) {bOK = false;} }
 					if (bOK) { this.lstAuteur.add(aut2); }
 				}
 				bOK = true;
@@ -83,12 +87,13 @@ public class Biblio
 					if (bOK) { this.lstStatut.add(stat); }
 				}
 
-				if ( s[1].equalsIgnoreCase("roman") ) { this.lstOuvrage.add ( new Livre ( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ) ); }
-				if ( s[1].equalsIgnoreCase("manga") ) { this.lstOuvrage.add ( new Manga ( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ) ); }
-				if ( s[1].equalsIgnoreCase("serie") ) { this.lstOuvrage.add ( new Serie ( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ) ); }
-				if ( s[1].equalsIgnoreCase("anime") ) { this.lstOuvrage.add ( new Anime ( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ) ); }
+				if ( s[1].equalsIgnoreCase("roman") ) { ajouterLivre( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ); }
+				if ( s[1].equalsIgnoreCase("manga") ) { ajouterManga( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ); }
+				if ( s[1].equalsIgnoreCase("serie") ) { ajouterSerie( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ); }
+				if ( s[1].equalsIgnoreCase("anime") ) { ajouterAnime( s[0], aut1, aut2, edit, stat, Integer.parseInt(s[8]), s[9] ); }
 				
 				cpt++;
+				System.out.println("+1 : " + cpt);
 			}
 			System.out.println(scFic.hasNextLine());
 			System.out.println("final : " + cpt);
@@ -104,16 +109,45 @@ public class Biblio
 		this.lstStatut.add(new Statut("en cours"));
 		this.lstStatut.add(new Statut("pause"));
 		this.lstStatut.add(new Statut("fini"));
+
+		System.out.println("fin init STatat");
 	}
 
 	public void majStatut ( int ligne, Statut stat ) { this.lstOuvrage.get(ligne).setStatut ( stat ); }
 	public boolean majNote ( int ligne, int val ) { return this.lstOuvrage.get(ligne).setNote ( val ); }
 	public void majDetNot ( int ligne, String val ) { this.lstOuvrage.get(ligne).setDetailNote ( val ); }
 
-	public void ajouterLivre (String tit, String ecri1, String ecri2, String edit, String stat, int not, String detNote )
+	public void ajouterOuvrage (String tit, String type, Auteur ecri1, Auteur ecri2, Editeur edit, Statut stat, int not, String detNote )
 	{
+		switch( type )
+		{
+			case "Roman" -> ajouterLivre( tit, ecri1, ecri2, edit, stat, not, detNote );
+			case "Manga" -> ajouterManga( tit, ecri1, ecri2, edit, stat, not, detNote );
+			case "Serie" -> ajouterSerie( tit, ecri1, ecri2, edit, stat, not, detNote );
+			case "Anime" -> ajouterAnime( tit, ecri1, ecri2, edit, stat, not, detNote );
+		}
 		this.sauvegarder();
 		System.out.println("Livre : OK");
+	}
+
+	private void ajouterLivre(String tit, Auteur ecri1, Auteur ecri2, Editeur edit, Statut stat, int not, String detNote )
+	{
+		this.lstOuvrage.add ( new Livre ( tit, ecri1, ecri2, edit, stat, not, detNote ) ); 
+	}
+
+	private void ajouterManga(String tit, Auteur ecri1, Auteur ecri2, Editeur edit, Statut stat, int not, String detNote )
+	{
+		this.lstOuvrage.add ( new Manga ( tit, ecri1, ecri2, edit, stat, not, detNote ) ); 
+	}
+
+	private void ajouterAnime(String tit, Auteur ecri1, Auteur ecri2, Editeur edit, Statut stat, int not, String detNote )
+	{
+		this.lstOuvrage.add ( new Anime ( tit, ecri1, ecri2, edit, stat, not, detNote ) ); 
+	}
+
+	private void ajouterSerie(String tit, Auteur ecri1, Auteur ecri2, Editeur edit, Statut stat, int not, String detNote )
+	{
+		this.lstOuvrage.add ( new Serie ( tit, ecri1, ecri2, edit, stat, not, detNote ) ); 
 	}
 
 	public void sauvegarder()
