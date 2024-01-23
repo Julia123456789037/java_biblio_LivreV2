@@ -16,7 +16,7 @@ public class Editeur
 		this.tabLivre = tabLivre;
 	}
 
-	public Editeur(String nom, String prenom) 
+	public Editeur(String nom) 
 	{
 		this(nom, 0, new ArrayList<Livre>());
 	}
@@ -35,6 +35,9 @@ public class Editeur
 		this.nbLivre = this.nbLivre + 1;
 		this.tabLivre.add(bouquin);
 	}
+
+	
+	public boolean equals(Editeur edt) { return this.equals(edt); }
 
 	@Override
 	public String toString() {

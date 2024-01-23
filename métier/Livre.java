@@ -72,6 +72,8 @@ public class Livre
 		}
 		return false;
 	}
+
+	public boolean equals(Livre liv) { return this.equals(liv); }
 	
 	public String  toString   ()
 	{

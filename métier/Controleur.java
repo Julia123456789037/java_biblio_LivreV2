@@ -14,7 +14,7 @@ public class Controleur
 	public Controleur ()
 	{
 		this.metier = new Biblio ();
-		this.ihm    = new FrameTable(this);
+		//this.ihm    = new FrameTable(this);
 	}
 
 
@@ -46,10 +46,7 @@ public class Controleur
 		this.metier.sauvegarder();
 	}
 
-	public void creer ()
-	{
-		this.creer = new FrameCreer(this); 
-	}
+	//public void creer (){ this.creer = new FrameCreer(this); }
 
 	public void supp(int val)
 	{

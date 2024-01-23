@@ -15,7 +15,10 @@ import java.io.OutputStreamWriter;
 public class Biblio
 {
 
-	private List<Livre> lstLivre;
+	private ArrayList<Editeur>lstEditeur;
+	private ArrayList<Auteur> lstAuteur;
+	private ArrayList<Statut> lstStatut;
+	private ArrayList<Livre> lstLivre;
 
 	public Biblio()
 	{
@@ -30,16 +33,25 @@ public class Biblio
 		int			cpt;
 		cpt = 0;
 
+		Livre liv;
+		Editeur edit;
+		Auteur aut1, aut2;
+		Statut stat;
+
 
 		try
 		{
-			scFic = new Scanner ( new FileInputStream ( "Livres.data" ), "UTF8" );
+			scFic = new Scanner ( new FileInputStream ( "../Livres.data" ), "UTF8" );
 
 			while ( scFic.hasNextLine() )
 			{
 				System.out.println(cpt);
 				s = scFic.nextLine().split("\t");
-
+				edit = new Editeur( s[5]);
+				if( ! s[3].equals("") )
+				{
+					aut1 = new Auteur(null, null)
+				}
 				this.lstLivre.add ( new Livre ( s[0], s[1], s[2], s[3], s[4], Integer.parseInt(s[5]), s[6] ) );
 				System.out.println( s[0] + " " +  s[1] + " " +  s[2] + " " +  s[3] + " " +  s[4] + " " +  Integer.parseInt(s[5]) + " " +  s[6] );
 				cpt++;

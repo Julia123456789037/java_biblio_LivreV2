@@ -40,6 +40,8 @@ public class Auteur
 		this.tabLivre.add(bouquin);
 	}
 
+	public boolean equals(Auteur aut) { return this.equals(aut); }
+
 	@Override
 	public String toString() {
 		return "Auteur [nom=" + nom + ", prenom=" + prenom + ", nbLivreEcrit=" + nbLivreEcrit + ", tabLivre=" + tabLivre
