@@ -3,14 +3,14 @@ package Bibli.java_biblio_LivreV2.métier;
 import java.util.ArrayList;
 import java.util.List;
 
-//import Bibli.java_biblio_LivreV1.FrameCreer;
-//import Bibli.java_biblio_LivreV1.FrameTable;
+import Bibli.java_biblio_LivreV1.FrameCreer;
+import Bibli.java_biblio_LivreV1.FrameTable;
 
 public class Controleur 
 {
-    //private FrameTable ihm;
+    private FrameTable ihm;
 	private Biblio  metier;
-	//private FrameCreer creer;
+	private FrameCreer creer;
 
 	public Controleur ()
 	{
