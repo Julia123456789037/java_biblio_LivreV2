@@ -1,4 +1,4 @@
-package projet_java.Bibli.java_biblio_LivreV1;
+package Bibli.java_biblio_LivreV2.IHM.PageTableau;
 
 import java.awt.*;
 import javax.swing.*;

@@ -3,8 +3,18 @@ package Bibli.java_biblio_LivreV2;
 import java.util.ArrayList;
 import java.util.List;
 
-import Bibli.java_biblio_LivreV1.FrameCreer;
-import Bibli.java_biblio_LivreV1.FrameTable;
+import Bibli.java_biblio_LivreV2.métier;
+import Bibli.java_biblio_LivreV2.métier.Editeur;
+import Bibli.java_biblio_LivreV2.métier.Ouvrage;
+import Bibli.java_biblio_LivreV2.métier.Statut;
+import Bibli.java_biblio_LivreV2.métier.Auteur;
+import Bibli.java_biblio_LivreV2.métier.Biblio;
+import Bibli.java_biblio_LivreV2.IHM.PageMenu.FrameMenu;
+/* 
+import Bibli.java_biblio_LivreV2.IHM.PageTableau.FrameCreer.;
+import Bibli.java_biblio_LivreV2.IHM.PageTableau.GrilleDonneesModel;
+import Bibli.java_biblio_LivreV2.IHM.PageTableau.PanelTable;
+*/
 
 public class Controleur 
 {
@@ -15,7 +25,7 @@ public class Controleur
 	public Controleur ()
 	{
 		this.metier = new Biblio ();
-		//this.ihm    = new FrameTable(this);
+		this.ihm    = new FrameMenu(this);
 	}
 
 
@@ -34,7 +44,7 @@ public class Controleur
 	{
 		metier.ajouterOuvrage(tit, type, ecri1, ecri2, edit, stat, not, detNote );
 
-		//System.out.println("Controleur : OK");
+		System.out.println("Controleur : OK");
 		//this.ihm.majModele();
 
 	}

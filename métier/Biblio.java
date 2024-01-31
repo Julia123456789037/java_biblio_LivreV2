@@ -10,6 +10,12 @@ import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
 
 
+import Bibli.java_biblio_LivreV2.métier.Editeur;
+import Bibli.java_biblio_LivreV2.métier.Ouvrage;
+import Bibli.java_biblio_LivreV2.métier.Statut;
+import Bibli.java_biblio_LivreV2.métier.Auteur;
+
+
 public class Biblio
 {
 
@@ -184,6 +190,8 @@ public class Biblio
 
 		return sRet;
 	}
+
+	public static void main(String[] a){ new Biblio(); }
 }
 
 
