@@ -1,4 +1,4 @@
-package Bibli.java_biblio_LivreV2.métier;
+package Bibli.java_biblio_LivreV2;
 
 import java.util.ArrayList;
 import java.util.List;
