@@ -1,4 +1,4 @@
-package Bibli.java_biblio_LivreV2.métier;
+package projet_java.Bibli.java_biblio_LivreV2.métier;
 
 
 public class Serie extends Ouvrage

@@ -1,4 +1,4 @@
-package Bibli.java_biblio_LivreV2.métier;
+package projet_java.Bibli.java_biblio_LivreV2.métier;
 
 
 import java.util.ArrayList;
@@ -9,12 +9,12 @@ import java.io.FileOutputStream;
 import java.io.PrintWriter;
 import java.io.OutputStreamWriter;
 
-
-import Bibli.java_biblio_LivreV2.métier.Editeur;
-import Bibli.java_biblio_LivreV2.métier.Ouvrage;
-import Bibli.java_biblio_LivreV2.métier.Statut;
-import Bibli.java_biblio_LivreV2.métier.Auteur;
-
+/* 
+import projet_java.Bibli.java_biblio_LivreV2.métier.Editeur;
+import projet_java.Bibli.java_biblio_LivreV2.métier.Ouvrage;
+import projet_java.Bibli.java_biblio_LivreV2.métier.Statut;
+import projet_java.Bibli.java_biblio_LivreV2.métier.Auteur;
+*/
 
 public class Biblio
 {
@@ -55,7 +55,7 @@ public class Biblio
 
 		try
 		{
-			scFic = new Scanner ( new FileInputStream ( "../Livres.data" ), "UTF8" );
+			scFic = new Scanner ( new FileInputStream ( "../autre/Livres.data" ), "UTF8" );
 
 			while ( scFic.hasNextLine() )
 			{
